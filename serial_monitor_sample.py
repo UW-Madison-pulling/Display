@@ -10,11 +10,5 @@ ser = serial.Serial(serial_location, baud_rate)
 
 print "Starting"
 while True:
-    try:
-        data = json.loads(ser.readline()[:-2])  # output serial data
-    except:
-        continue
-    if not math.isinf(data["frequency"]) and data["frequency"] > 0:
-        print data["frequency"]
-
-# ser.write('5')  # write through serial
+    data = json.loads(ser.readline()[:-2])  # output serial data
+    print data
