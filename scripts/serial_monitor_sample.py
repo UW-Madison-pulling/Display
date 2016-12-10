@@ -10,5 +10,8 @@ ser = serial.Serial(serial_location, baud_rate)
 
 print "Starting"
 while True:
-    data = json.loads(ser.readline()[:-2])  # output serial data
-    print data
+    try:
+        data = json.loads(ser.readline()[:-2])  # output serial data
+        print data
+    except:
+        continue
